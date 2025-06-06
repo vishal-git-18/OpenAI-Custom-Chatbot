@@ -1,0 +1,36 @@
+.sample-questions {
+  display: flex;
+  justify-content: flex-end; 
+  margin-bottom: 1rem;
+  margin-top: 15px;
+}
+
+.question-buttons {
+  display: flex;
+  flex-wrap: wrap;            
+  gap: 0.25rem;               
+  max-width: 55%;               
+  margin-left: auto;
+  justify-content: flex-end;
+}
+
+.question-buttons button {
+  white-space: nowrap;       
+  padding: 6px 10px;
+  margin: 2px;                 
+  background: #73767f; 
+  color: white;
+  border: 2px solid white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+  Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.question-buttons button:hover {
+  background: #0c4266;
+  transform: translateY(-2px);
+}
