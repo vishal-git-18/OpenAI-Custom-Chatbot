@@ -11,7 +11,6 @@ const SampleQuestions = ({ onSelect }) => {
 
   return (
     <div className="sample-questions">
-      <h3>Try asking:</h3>
       <div className="question-buttons">
         {questions.map((q, index) => (
           <button key={index} onClick={() => onSelect(q)}>

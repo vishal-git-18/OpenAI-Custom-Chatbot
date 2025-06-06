@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import SampleQuestions from '../components/SampleQuestions';
 import ChatMessage from '../components/ChatMessage';
+import ChatInput from '../components/ChatInput';
 import { getTestResponse } from '../api/test/testApi';
 
 const ChatPage = () => {
@@ -8,9 +9,14 @@ const ChatPage = () => {
   const [loading, setLoading] = useState(false);
 
   const handleSampleQuestionClick = async (question) => {
+    handleUserMessage(question);
+  };
+
+  const handleUserMessage = async (userMessage) => {
+    if (!userMessage) return;
+    setMessages((prev) => [...prev, { type: 'user', text: userMessage }]);
     setLoading(true);
-    // Add user's message to messages
-    setMessages((prev) => [...prev, { type: 'user', text: question }]);
+
     try {
       const response = await getTestResponse();
       setMessages((prev) => [...prev, { type: 'bot', text: response }]);
@@ -23,14 +29,18 @@ const ChatPage = () => {
   };
 
   return (
-    <div className="chat-page">
-      <h1>OpenAI Custom Chatbot</h1>
-      <SampleQuestions onSelect={handleSampleQuestionClick} />
-      <div className="chat-messages">
-        {messages.map((msg, index) => (
-          <ChatMessage key={index} type={msg.type} text={msg.text} />
-        ))}
-        {loading && <p>Loading...</p>}
+    <div className="chat-container">
+      <img src="/images/logo.jpeg" alt="Ohai AI" className="chat-logo" />
+        <img src="/images/avatar.png" alt="Assistant Avatar" className="assistant-avatar" />
+      <div className="chat-page">
+        <div className="chat-messages">
+          {messages.map((msg, index) => (
+            <ChatMessage key={index} type={msg.type} text={msg.text} />
+          ))}
+          {loading && <p>Loading...</p>}
+        </div>
+        <SampleQuestions onSelect={handleSampleQuestionClick} />
+        <ChatInput onSend={handleUserMessage} />
       </div>
     </div>
   );
