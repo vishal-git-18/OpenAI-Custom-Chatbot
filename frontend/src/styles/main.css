@@ -11,13 +11,17 @@ body {
 }
 
 .chat-page {
+  display: flex;
+  flex-direction: column;
+  max-width: 750px;
+  height: 70vh;  /* fixed height */
+  margin: 20px auto;
   background-color: #73767f;
   color: #fcf9f9;
-  max-width: 750px;
-  margin: 20px auto;
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  overflow-y: auto;
 }
 
 .chat-logo {
@@ -68,6 +72,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  scroll-behavior: smooth;
 }
 
 .chat-message {
@@ -166,5 +171,11 @@ body {
   height: 300px;
   padding: 5px;
   z-index: 1000;
+}
+
+.bottom-bar {
+  margin-top: auto;
+  background-color: inherit;
+  padding-top: 10px;
 }
 
