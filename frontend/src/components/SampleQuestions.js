@@ -1,12 +1,10 @@
-import React from 'react';
-import '../styles/main.css';
+import '../styles/export.css';
 
 const SampleQuestions = ({ onSelect }) => {
   const questions = [
-    "What can you do?",
-    "Tell me a joke.",
+    "Show me today's events",
     "How's the weather today?",
-    "Give me some advice."
+    "Make a dentist appointment at 3pm."
   ];
 
   return (

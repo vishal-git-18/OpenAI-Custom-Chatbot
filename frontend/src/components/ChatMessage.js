@@ -1,5 +1,4 @@
-import React from 'react';
-import '../styles/main.css';
+import '../styles/export.css';
 
 const ChatMessage = ({ type, text }) => {
   return (

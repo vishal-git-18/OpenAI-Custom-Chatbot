@@ -1,4 +1,5 @@
-knowledge-base
+knowledge_base
 __pycache__/
 *.pyc
 frontend/node_modules/
+backend/.env
