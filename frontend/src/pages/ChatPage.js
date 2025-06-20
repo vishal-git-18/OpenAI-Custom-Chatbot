@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import SampleQuestions from '../components/SampleQuestions';
 import ChatMessage from '../components/ChatMessage';
 import ChatInput from '../components/ChatInput';
-import { getTestResponse } from '../api/test/testApi';
+import { getOpenAIResponse } from '../api/openAI/openApi';
 
 const ChatPage = () => {
   const [messages, setMessages] = useState([]);
@@ -19,7 +19,7 @@ const ChatPage = () => {
     setLoading(true);
 
     try {
-      const response = await getTestResponse();
+      const response = await getOpenAIResponse(userMessage);
       setMessages((prev) => [...prev, { type: 'bot', text: response }]);
     } catch (error) {
       console.error(error);
