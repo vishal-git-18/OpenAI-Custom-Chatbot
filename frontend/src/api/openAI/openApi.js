@@ -4,7 +4,7 @@ export async function getOpenAIResponse(prompt) {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ message: prompt }), // ✅ matches `MessageRequest`
+    body: JSON.stringify({ message: prompt }),
   });
 
   if (!response.ok) {
@@ -15,6 +15,5 @@ export async function getOpenAIResponse(prompt) {
   const data = await response.json();
   console.log("Received:", data);
 
-  const inner = JSON.parse(data.response.replace(/```json\n|\n```/g, ""));
-  return inner.response;
+  return data.response;
 }

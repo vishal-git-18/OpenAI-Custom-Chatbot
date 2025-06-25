@@ -1,17 +1,23 @@
 .chat-messages {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   gap: 10px;
   scroll-behavior: smooth;
 }
 
 .chat-message {
-  padding: 3px 9px;     
+  padding: 3px 9px;
   border-radius: 4px;
-  max-width: 60%;        
-  font-size: 14px;         
-  line-height: 0.2px;
+  max-width: 60%;
+  font-size: 14px;
+  line-height: 1.4; /* ✅ fixed line height */
+  white-space: pre-wrap;   /* ✅ wrap long lines and preserve spacing */
+  word-wrap: break-word;   /* ✅ break long words */
+  overflow-wrap: break-word; /* ✅ break long words in newer browsers */
+  overflow: hidden;
 }
+
 
 .chat-message.user {
   margin-right: 15px;
